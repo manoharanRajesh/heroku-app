@@ -5,9 +5,9 @@
     <div class="mat-app-background basic-container">
 
       <mat-vertical-stepper>
-        <mat-step [stepControl]="firstFormGroup">
+        <mat-step [stepControl]="firstFormGroup" [completed]="false" >
           <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>For the workshop we need following account</ng-template>
+            <ng-template matStepLabel>Account</ng-template>
             <mat-radio-group formControlName="hideRequired">
               For source code repository we will use Github.Do you have GITHUB Account?
               <mat-radio-button value="true">yes</mat-radio-button>
@@ -44,9 +44,9 @@
             </div>
           </form>
         </mat-step>
-        <mat-step [stepControl]="secondFormGroup">
+        <mat-step [stepControl]="secondFormGroup" [completed]="false" >
           <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Fill out your address</ng-template>
+            <ng-template matStepLabel>Tools</ng-template>
             <mat-radio-group formControlName="dockerInstall">
               We need docker environments for jenkins play environment. Do you have local docker runtime environment ?
               <mat-radio-button value="true">yes</mat-radio-button>
@@ -74,7 +74,7 @@
             </div>
           </form>
         </mat-step>
-        <mat-step>
+        <mat-step [completed]="false" >
           <ng-template matStepLabel>Done</ng-template>
           Thanks for taking questioner.
         </mat-step>
