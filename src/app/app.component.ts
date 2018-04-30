@@ -17,7 +17,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.firstFormGroup = this.formBuilder.group({
       hideRequired: 'true',
-      vstsHideRequired: 'true'
+      vstsHideRequired: 'true',
+      pivotalHideRequired: 'true'
     });
     this.secondFormGroup = this.formBuilder.group({
       dockerInstall: 'true'
