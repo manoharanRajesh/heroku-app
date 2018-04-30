@@ -9,7 +9,7 @@
           <form [formGroup]="firstFormGroup">
             <ng-template matStepLabel>Account</ng-template>
             <mat-radio-group formControlName="hideRequired">
-              For source code repository we will use Github.Do you have GITHUB Account?
+              For source code management we will use Github.Do you have GITHUB Account?
               <mat-radio-button value="true">yes</mat-radio-button>
               <mat-radio-button value="false">no</mat-radio-button>
             </mat-radio-group>
@@ -17,27 +17,49 @@
               <a href="https://github.com/" target="_blank">Click to create Account</a>
             </div>
             <br/>
+            <mat-radio-group formControlName="pivotalHideRequired">
+              We can also deploy application to PCF. Do you have one pivotal cloud account?
+              <mat-radio-button value="true">yes</mat-radio-button>
+              <mat-radio-button value="false">no</mat-radio-button>
+            </mat-radio-group>
+              <div [hidden]="firstFormGroup.value.pivotalHideRequired==='true'" >
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      For create Pivotal account
+                    </mat-panel-title>
+                    <mat-panel-description>
+
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <div >
+                    <a href="https://login.run.pivotal.io/login/" target="_blank">Click to create Account</a>
+                  </div>
+                </mat-expansion-panel>
+              </div>
+            <br/>
             <mat-radio-group formControlName="vstsHideRequired">
               we need VSTS cloud environment for trying CI/CD. Do you have one VSTS account?
               <mat-radio-button value="true">yes</mat-radio-button>
               <mat-radio-button value="false">no</mat-radio-button>
             </mat-radio-group>
-              <div [hidden]="firstFormGroup.value.vstsHideRequired==='true'" >
-                <mat-expansion-panel (opened)="panelOpenState = true"
-                                     (closed)="panelOpenState = false">
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>
-                      For create VSTS account
-                    </mat-panel-title>
-                    <mat-panel-description>
-                      Note: we can use CTS ID
-                    </mat-panel-description>
-                  </mat-expansion-panel-header>
-                  <div >
-                    <a href="https://www.visualstudio.com/" target="_blank">Click to create Account</a>
-                  </div>
-                </mat-expansion-panel>
-              </div>
+            <div [hidden]="firstFormGroup.value.vstsHideRequired==='true'" >
+              <mat-expansion-panel (opened)="panelOpenState = true"
+                                   (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    For create VSTS account
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Note: we can use CTS ID
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div >
+                  <a href="https://www.visualstudio.com/" target="_blank">Click to create Account</a>
+                </div>
+              </mat-expansion-panel>
+            </div>
             <br/>
             <div>
               <button mat-button matStepperNext>Next</button>
